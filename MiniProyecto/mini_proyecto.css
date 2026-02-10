@@ -1,0 +1,31 @@
+body {
+    font-family: 'Trebuchet MS';
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.orientacion {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.titulo {
+    margin-bottom: 20px;
+    display: flex;
+    /* TODO: TAREAAAA. ¿Por qué no no está funcionando esta clase?*/
+    align-items: flex-start !important; 
+}
+
+.menu {
+    background-color: blue;
+    padding: 10px;
+    margin: 10px;
+
+}
+
+a {
+    color: white !important;
+    text-decoration: none;
+}
