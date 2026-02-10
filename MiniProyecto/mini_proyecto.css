@@ -28,4 +28,5 @@ body {
 a {
     color: white !important;
     text-decoration: none;
+    border-left: 1px;
 }
