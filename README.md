@@ -104,7 +104,7 @@ Una vez lo hayas hecho, crea una rama para trabajar tu ejercicio. **¡NOTA!: Ase
 ---
 <br>
 
-## Extensiones de VS Code
+## Extensiones para VS Code
 Si usas VS Code como IDE y te llama la atención tener las extensiones que has podido ver en las clases, te comparto la lista:
 * [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag).
 * [Better Comments](https://marketplace.visualstudio.com/items?itemName=aaron-bond.better-comments).
