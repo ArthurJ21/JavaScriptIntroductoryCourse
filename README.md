@@ -9,7 +9,7 @@
 
 ## Tabla de Contenidos
 * [Descripción del Curso.](#descripción-del-curso)
-* [Requisitos Previos.](#requisitos-revios)
+* [Requisitos Previos.](#requisitos-previos)
 * [Estructura del Repositorio.](#estructura-del-repositorio)
 * [Instalación y Configuración.](#instalación-y-configuración)
 * [Contribuciones.](#contribuciones)
