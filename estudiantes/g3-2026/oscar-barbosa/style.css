@@ -1,15 +1,576 @@
-/* Base CSS */
-body {
-  font-family: Arial, sans-serif;
-  background-color: #f4f4f9;
-  color: #333;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  margin: 0;
+/* =======================================================
+ * PORTAFOLIO — Oscar Barbosa | Gameplay & AI Programmer
+ * Archivo: style.css
+ * Descripción: Hoja de estilos principal del portafolio.
+ *
+ * ÍNDICE DE SECCIONES:
+ *  1. Variables CSS (Design Tokens)
+ *  2. Reset Base & Body
+ *  3. Navbar (Glassmorphism + Marca animada)
+ *  4. Layout de Secciones (contenedor general .section)
+ *  5. Hero Section
+ *  6. Botones (.btn, .btn-primary, .btn-secondary)
+ *  7. Tarjetas de Proyectos (.project-card, .project-image)
+ *  8. Badges de Tecnología (.badge.unity / .csharp / .unreal / .bp / .collab)
+ *  9. Links de Proyectos (.link)
+ * 10. Habilidades (.skills-container, .skill-tag)
+ * 11. Contacto (.contact-box, .social-btn)
+ * 12. Footer
+ * 13. Animaciones (fade-in, blink cursor)
+ * 14. Accesibilidad (skip-link, focus-visible, aria-current)
+ * 15. Responsive / Media Queries
+ * ======================================================= */
+
+
+/* -------------------------------------------------------
+ * 1. VARIABLES CSS (Design Tokens)
+ * Para cambiar los colores globales del sitio, modifica
+ * solo estas variables. El cambio se propaga solo.
+ * ------------------------------------------------------- */
+:root {
+    --bg-main: #0b0f19;          /* Fondo muy oscuro y azulado */
+    --bg-surface: #151a2a;       /* Fondo para tarjetas y superficies */
+    --primary-color: #00e5ff;    /* Cyan Neón Tech — color de acento principal */
+    --secondary-color: #7c3aed;  /* Púrpura intenso — usado en el glow del hero */
+    --text-light: #f8fafc;       /* Texto principal (blanco suave) */
+    --text-muted: #94a3b8;       /* Texto secundario / descripciones */
+
+    --font-heading: 'Outfit', sans-serif;  /* Títulos y marca */
+    --font-body: 'Inter', sans-serif;      /* Cuerpo de texto */
+
+    --transition-speed: 0.3s;    /* Velocidad global de transiciones hover */
 }
 
-h1 {
-  color: #2c3e50;
+
+/* -------------------------------------------------------
+ * 2. RESET BASE & BODY
+ * Normaliza márgenes, paddings y box-model.
+ * overflow-x: hidden evita scroll horizontal accidental.
+ * ------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth; /* Desplazamiento suave nativo del navegador */
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--bg-main);
+    color: var(--text-light);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+
+/* -------------------------------------------------------
+ * 3. NAVBAR
+ * Posición fija en la parte superior con efecto
+ * glassmorphism (backdrop-filter: blur).
+ * El prefijo -webkit- es necesario para Safari/iOS.
+ * Para agregar un menú hamburguesa en móvil, añade
+ * un botón <button> en HTML y controla .nav-links
+ * con JS toggling la clase 'open'.
+ * ------------------------------------------------------- */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 5%;
+    background: rgba(11, 15, 25, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px); /* Safari */
+    z-index: 1000;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Marca "OB" — el cursor parpadeante se añade via CSS ::after */
+.nav-brand {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--text-light);
+    letter-spacing: -1px;
+}
+/* Cursor animado "OB_" — para cambiar el símbolo, edita content: */
+.nav-brand::after {
+    content: '_';
+    color: var(--primary-color);
+    animation: blink 1s infinite alternate;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-muted);
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: color var(--transition-speed);
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+
+/* -------------------------------------------------------
+ * 4. LAYOUT DE SECCIONES
+ * .section es el contenedor base de cada bloque de la página.
+ * max-width + margin: auto centra el contenido.
+ * .section-title añade una línea decorativa inferior.
+ * ------------------------------------------------------- */
+.section {
+    padding: 6rem 5% 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Línea decorativa cyan bajo los títulos de sección */
+.section-title {
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+    display: inline-block;
+}
+.section-title::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 0;
+    width: 40%;
+    height: 3px;
+    background: linear-gradient(90deg, var(--primary-color), transparent);
+}
+
+
+/* -------------------------------------------------------
+ * 5. HERO SECTION
+ * Ocupa el 100% del viewport al inicio.
+ * .hero-glow es el blob de luz difusa decorativo (solo visual).
+ * Para cambiar el color del glow, edita --secondary-color en :root.
+ * ------------------------------------------------------- */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 5rem 5% 0; /* El padding-top compensa la navbar fija */
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.hero-content {
+    max-width: 700px;
+    z-index: 2;
+}
+
+.greeting {
+    font-family: var(--font-heading);
+    color: var(--primary-color);
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+}
+
+/* Nombre principal con gradiente de texto */
+.name {
+    font-family: var(--font-heading);
+    font-size: clamp(3.5rem, 6vw, 5rem); /* clamp: tamaño fluido y responsivo */
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    background: linear-gradient(to right, var(--text-light), var(--text-muted));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.title {
+    font-size: 1.8rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    font-weight: 400;
+}
+
+.bio {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 2.5rem;
+    max-width: 600px;
+}
+
+/* Blob de luz difusa decorativo del hero (aria-hidden en HTML) */
+.hero-glow {
+    position: absolute;
+    top: 50%;
+    right: 10%;
+    transform: translateY(-50%);
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, var(--secondary-color) 0%, transparent 60%);
+    opacity: 0.15;
+    filter: blur(60px);
+    z-index: 0;
+    pointer-events: none; /* No interfiere con clicks */
+}
+
+
+/* -------------------------------------------------------
+ * 6. BOTONES
+ * .btn = base común
+ * .btn-primary = borde cyan (principal / CTA)
+ * .btn-secondary = borde gris (secundario / GitHub)
+ * Para agregar un nuevo estilo de botón, crea .btn-xxx
+ * siguiendo el mismo patrón.
+ * ------------------------------------------------------- */
+.btn {
+    display: inline-block;
+    padding: 0.8rem 1.8rem;
+    border-radius: 4px;
+    font-family: var(--font-heading);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-speed);
+    cursor: pointer;
+}
+
+.btn-primary {
+    background-color: transparent;
+    color: var(--primary-color);
+    border: 1px solid var(--primary-color);
+}
+.btn-primary:hover {
+    background-color: rgba(0, 229, 255, 0.1);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--text-light);
+    border: 1px solid var(--text-muted);
+    margin-left: 1rem;
+}
+.btn-secondary:hover {
+    border-color: var(--text-light);
+}
+
+
+/* -------------------------------------------------------
+ * 7. TARJETAS DE PROYECTOS
+ * .projects-grid: cuadrícula auto-responsive de 2 columnas.
+ *   Para forzar 3 columnas: repeat(3, 1fr)
+ *   Para forzar 1 columna (móvil): repeat(1, 1fr)
+ *
+ * .project-card usa flex-column para que el botón
+ * "Ver Código" siempre quede anclado al fondo,
+ * independientemente del largo de la descripción.
+ *
+ * Para agregar un nuevo proyecto, copia cualquier bloque
+ * <article class="project-card"> en index.html.
+ * ------------------------------------------------------- */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: var(--bg-surface);
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    display: flex;
+    flex-direction: column; /* Permite igualar alturas entre tarjetas */
+}
+
+.project-card:hover {
+    transform: translateY(-5px);   /* Efecto de elevación */
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    border-color: rgba(0, 229, 255, 0.3); /* Glow cyan sutil */
+}
+
+/* Área de imagen/placeholder antes de tener capturas reales.
+ * Cuando tengas imágenes: reemplaza el <div> por un <img>
+ * y elimina las propiedades display/justify/align-items. */
+.project-image {
+    height: 200px;
+    width: 100%;
+    background-color: #1a233a;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.project-info {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex: 1; /* Hace que el card ocupe toda la altura de su fila */
+}
+
+.project-info h3 {
+    font-family: var(--font-heading);
+    font-size: 1.4rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-info p {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    flex: 1; /* Empuja el enlace "Ver Código" siempre al fondo */
+}
+
+
+/* -------------------------------------------------------
+ * 8. BADGES DE TECNOLOGÍA
+ * Cada motor/lenguaje tiene su propio color temático:
+ *   .unity  = blanco neutro
+ *   .csharp = púrpura
+ *   .unreal = azul
+ *   .bp     = verde (Blueprints)
+ *   .collab = cyan (proyectos colaborativos)
+ *
+ * Para añadir un nuevo motor: .badge.nombremotор { ... }
+ * ------------------------------------------------------- */
+.tech-stack {
+    display: flex;
+    flex-wrap: wrap; /* wrap permite que los badges bajen de línea si no caben */
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.badge {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.6rem;
+    border-radius: 12px;
+    font-weight: 600;
+}
+.badge.unity  { background: rgba(255, 255, 255, 0.1); color: #fff; }
+.badge.csharp { background: rgba(144, 58, 237, 0.2);  color: #c496ff; }
+.badge.unreal { background: rgba(52, 152, 219, 0.2);  color: #6db6f2; }
+.badge.bp     { background: rgba(46, 204, 113, 0.2);  color: #6fed9e; }
+.badge.collab { background: rgba(0, 229, 255, 0.15);  color: var(--primary-color); }
+
+
+/* -------------------------------------------------------
+ * 9. LINKS DE PROYECTOS
+ * El emoji "💻" es parte del texto del link en HTML.
+ * ------------------------------------------------------- */
+.link {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+.link:hover { text-decoration: underline; }
+
+
+/* -------------------------------------------------------
+ * 10. HABILIDADES
+ * Grid de 3 columnas auto-adaptativas.
+ * .skills-list es un <ul> semántico sin bullets visuales.
+ * Para añadir una nueva habilidad: agrega un <li> en HTML.
+ * Para añadir una nueva categoría: duplica .skill-category en HTML.
+ * ------------------------------------------------------- */
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+}
+
+.skill-category h3 {
+    font-family: var(--font-heading);
+    color: var(--text-light);
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+/* Reset de lista (la semántica <ul> sin bullets visuales) */
+.skills-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.skill-tag {
+    background-color: var(--bg-surface);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    transition: color var(--transition-speed), border-color var(--transition-speed);
+}
+.skill-tag:hover {
+    color: var(--primary-color);
+    border-color: var(--primary-color);
+}
+
+
+/* -------------------------------------------------------
+ * 11. CONTACTO
+ * .contact-box: caja centrada con fondo de superficie.
+ * .social-btn: links de texto simples para redes sociales.
+ * Para añadir más redes: copia un <a class="social-btn"> en HTML.
+ * ------------------------------------------------------- */
+.contact-box {
+    background-color: var(--bg-surface);
+    padding: 3rem;
+    border-radius: 8px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.contact-box h2 {
+    font-family: var(--font-heading);
+    margin-bottom: 1rem;
+}
+
+.contact-box p {
+    color: var(--text-muted);
+    max-width: 500px;
+    margin: 0 auto 2rem;
+}
+
+.contact-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-btn {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 0.9rem;
+}
+.social-btn:hover { color: var(--text-light); }
+
+
+/* -------------------------------------------------------
+ * 12. FOOTER
+ * Simple y minimalista. El año se inserta dinámicamente
+ * desde script.js (id="current-year").
+ * ------------------------------------------------------- */
+footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+
+/* -------------------------------------------------------
+ * 13. ANIMACIONES
+ * .fade-in: estado inicial invisible (opacity:0, desplazado).
+ * .fade-in.visible: estado final (JS lo activa con IntersectionObserver).
+ * @keyframes blink: para el cursor parpadeante del nav-brand.
+ *
+ * Para ajustar la velocidad de entrada: cambia 0.6s en .fade-in.
+ * Para desactivar las animaciones globalmente: elimina .fade-in
+ * del HTML o añade prefers-reduced-motion (ver abajo).
+ * ------------------------------------------------------- */
+.fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Respeto por usuarios con sensibilidad a movimiento (buena práctica) */
+@media (prefers-reduced-motion: reduce) {
+    .fade-in {
+        transition: none;
+        opacity: 1;
+        transform: none;
+    }
+}
+
+@keyframes blink {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+
+/* -------------------------------------------------------
+ * 14. ACCESIBILIDAD
+ * .skip-link: permite a usuarios de teclado saltar al contenido.
+ *   Permanece invisible hasta recibir foco (:focus).
+ * :focus-visible: anillo de foco solo para teclado (no para mouse).
+ * aria-current="page": resalta el link activo del navbar (vía JS).
+ * ------------------------------------------------------- */
+.skip-link {
+    position: absolute;
+    top: -100%;
+    left: 1rem;
+    background-color: var(--primary-color);
+    color: var(--bg-main);
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 700;
+    z-index: 9999;
+    text-decoration: none;
+}
+.skip-link:focus {
+    top: 1rem; /* Aparece al hacer Tab por primera vez */
+}
+
+/* Anillo de foco visible solo cuando se navega con teclado */
+a:focus-visible,
+.btn:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 4px;
+    border-radius: 2px;
+}
+
+/* Link activo en el navbar (actualizado por JS con aria-current="page") */
+.nav-links a[aria-current="page"] {
+    color: var(--primary-color);
+}
+
+
+/* -------------------------------------------------------
+ * 15. RESPONSIVE / MEDIA QUERIES
+ * Breakpoint mínimo: 768px (tablets y móviles).
+ * El menú se oculta — ideal para implementar hamburguesa.
+ *
+ * Para agregar más breakpoints:
+ *   @media (max-width: 480px) { ... }  → móviles pequeños
+ *   @media (min-width: 1440px) { ... } → pantallas grandes
+ * ------------------------------------------------------- */
+@media (max-width: 768px) {
+    /* Oculta el menú horizontal — implementar hamburguesa en el futuro */
+    .nav-links { display: none; }
+
+    .name { font-size: 3rem; }
+
+    /* En móvil, el botón secundario baja debajo del primario */
+    .btn-secondary { margin-left: 0; margin-top: 1rem; }
 }
