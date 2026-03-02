@@ -1,51 +1,52 @@
 /* =======================================================
- * PORTAFOLIO — Oscar Barbosa | Gameplay & AI Programmer
- * Archivo: style.css
- * Descripción: Hoja de estilos principal del portafolio.
+ * PORTFOLIO — Oscar Barbosa | Gameplay & AI Programmer
+ * File: style.css
+ * Description: Main stylesheet of the portfolio.
  *
- * ÍNDICE DE SECCIONES:
- *  1. Variables CSS (Design Tokens)
- *  2. Reset Base & Body
- *  3. Navbar (Glassmorphism + Marca animada)
- *  4. Layout de Secciones (contenedor general .section)
+ * SECTION INDEX:
+ *  1. CSS Variables (Design Tokens)
+ *  2. Base Reset & Body
+ *  3. Navbar (Glassmorphism + Animated brand)
+ *  4. Section Layout (general container .section)
  *  5. Hero Section
- *  6. Botones (.btn, .btn-primary, .btn-secondary)
- *  7. Tarjetas de Proyectos (.project-card, .project-image)
- *  8. Badges de Tecnología (.badge.unity / .csharp / .unreal / .bp / .collab)
- *  9. Links de Proyectos (.link)
- * 10. Habilidades (.skills-container, .skill-tag)
- * 11. Contacto (.contact-box, .social-btn)
- * 12. Footer
- * 13. Animaciones (fade-in, blink cursor)
- * 14. Accesibilidad (skip-link, focus-visible, aria-current)
- * 15. Responsive / Media Queries
+ *  6. About Me Section
+ *  7. Buttons (.btn, .btn-primary, .btn-secondary)
+ *  8. Project Cards (.project-card, .project-image)
+ *  9. Technology Badges (.badge.unity / .csharp / .unreal / .bp / .collab / .lead)
+ * 10. Project Links (.link)
+ * 11. Skills (.skills-container, .skill-tag)
+ * 12. Contact (.contact-box, .social-btn)
+ * 13. Footer
+ * 14. Animations (fade-in, blink cursor)
+ * 15. Accessibility (skip-link, focus-visible, aria-current)
+ * 16. Responsive / Media Queries
  * ======================================================= */
 
 
 /* -------------------------------------------------------
- * 1. VARIABLES CSS (Design Tokens)
- * Para cambiar los colores globales del sitio, modifica
- * solo estas variables. El cambio se propaga solo.
+ * 1. CSS VARIABLES (Design Tokens)
+ * To change global site colors, edit only these variables.
+ * Changes propagate automatically throughout the stylesheet.
  * ------------------------------------------------------- */
 :root {
-    --bg-main: #0b0f19;          /* Fondo muy oscuro y azulado */
-    --bg-surface: #151a2a;       /* Fondo para tarjetas y superficies */
-    --primary-color: #00e5ff;    /* Cyan Neón Tech — color de acento principal */
-    --secondary-color: #7c3aed;  /* Púrpura intenso — usado en el glow del hero */
-    --text-light: #f8fafc;       /* Texto principal (blanco suave) */
-    --text-muted: #94a3b8;       /* Texto secundario / descripciones */
+    --bg-main: #0b0f19;          /* Very dark, slightly blue background */
+    --bg-surface: #151a2a;       /* Background for cards and surfaces */
+    --primary-color: #00e5ff;    /* Neon Cyan Tech — main accent color */
+    --secondary-color: #7c3aed;  /* Intense purple — used in hero glow */
+    --text-light: #f8fafc;       /* Main text (soft white) */
+    --text-muted: #94a3b8;       /* Secondary text / descriptions */
 
-    --font-heading: 'Outfit', sans-serif;  /* Títulos y marca */
-    --font-body: 'Inter', sans-serif;      /* Cuerpo de texto */
+    --font-heading: 'Outfit', sans-serif;  /* Headings and brand */
+    --font-body: 'Inter', sans-serif;      /* Body text */
 
-    --transition-speed: 0.3s;    /* Velocidad global de transiciones hover */
+    --transition-speed: 0.3s;    /* Global hover transition speed */
 }
 
 
 /* -------------------------------------------------------
- * 2. RESET BASE & BODY
- * Normaliza márgenes, paddings y box-model.
- * overflow-x: hidden evita scroll horizontal accidental.
+ * 2. BASE RESET & BODY
+ * Normalizes margins, paddings, and box-model.
+ * overflow-x: hidden prevents accidental horizontal scroll.
  * ------------------------------------------------------- */
 * {
     margin: 0;
@@ -54,7 +55,7 @@
 }
 
 html {
-    scroll-behavior: smooth; /* Desplazamiento suave nativo del navegador */
+    scroll-behavior: smooth; /* Native browser smooth scrolling */
 }
 
 body {
@@ -68,12 +69,11 @@ body {
 
 /* -------------------------------------------------------
  * 3. NAVBAR
- * Posición fija en la parte superior con efecto
- * glassmorphism (backdrop-filter: blur).
- * El prefijo -webkit- es necesario para Safari/iOS.
- * Para agregar un menú hamburguesa en móvil, añade
- * un botón <button> en HTML y controla .nav-links
- * con JS toggling la clase 'open'.
+ * Fixed at the top with glassmorphism effect
+ * (backdrop-filter: blur).
+ * The -webkit- prefix is required for Safari/iOS.
+ * To add a hamburger menu on mobile, add a <button>
+ * in HTML and toggle the class 'open' on .nav-links via JS.
  * ------------------------------------------------------- */
 .navbar {
     position: fixed;
@@ -90,7 +90,7 @@ body {
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
-/* Marca "OB" — el cursor parpadeante se añade via CSS ::after */
+/* "OB" brand — the blinking cursor is added via CSS ::after */
 .nav-brand {
     font-family: var(--font-heading);
     font-size: 1.5rem;
@@ -98,7 +98,7 @@ body {
     color: var(--text-light);
     letter-spacing: -1px;
 }
-/* Cursor animado "OB_" — para cambiar el símbolo, edita content: */
+/* Animated cursor "OB_" — to change the symbol, edit content: */
 .nav-brand::after {
     content: '_';
     color: var(--primary-color);
@@ -125,10 +125,10 @@ body {
 
 
 /* -------------------------------------------------------
- * 4. LAYOUT DE SECCIONES
- * .section es el contenedor base de cada bloque de la página.
- * max-width + margin: auto centra el contenido.
- * .section-title añade una línea decorativa inferior.
+ * 4. SECTION LAYOUT
+ * .section is the base container for each page block.
+ * max-width + margin: auto centers the content.
+ * .section-title adds a decorative bottom underline.
  * ------------------------------------------------------- */
 .section {
     padding: 6rem 5% 4rem;
@@ -136,7 +136,7 @@ body {
     margin: 0 auto;
 }
 
-/* Línea decorativa cyan bajo los títulos de sección */
+/* Cyan decorative line below section titles */
 .section-title {
     font-family: var(--font-heading);
     font-size: 2.5rem;
@@ -157,15 +157,15 @@ body {
 
 /* -------------------------------------------------------
  * 5. HERO SECTION
- * Ocupa el 100% del viewport al inicio.
- * .hero-glow es el blob de luz difusa decorativo (solo visual).
- * Para cambiar el color del glow, edita --secondary-color en :root.
+ * Occupies 100% of the viewport on load.
+ * .hero-glow is a decorative diffuse light blob (visual only).
+ * To change the glow color, edit --secondary-color in :root.
  * ------------------------------------------------------- */
 .hero {
     min-height: 100vh;
     display: flex;
     align-items: center;
-    padding: 5rem 5% 0; /* El padding-top compensa la navbar fija */
+    padding: 5rem 5% 0; /* padding-top compensates for the fixed navbar */
     position: relative;
     max-width: 1200px;
     margin: 0 auto;
@@ -183,10 +183,10 @@ body {
     margin-bottom: 0.5rem;
 }
 
-/* Nombre principal con gradiente de texto */
+/* Main name with text gradient */
 .name {
     font-family: var(--font-heading);
-    font-size: clamp(3.5rem, 6vw, 5rem); /* clamp: tamaño fluido y responsivo */
+    font-size: clamp(3.5rem, 6vw, 5rem); /* clamp: fluid and responsive size */
     line-height: 1;
     margin-bottom: 0.5rem;
     background: linear-gradient(to right, var(--text-light), var(--text-muted));
@@ -209,7 +209,7 @@ body {
     max-width: 600px;
 }
 
-/* Blob de luz difusa decorativo del hero (aria-hidden en HTML) */
+/* Decorative diffuse light blob on the hero (aria-hidden in HTML) */
 .hero-glow {
     position: absolute;
     top: 50%;
@@ -221,17 +221,40 @@ body {
     opacity: 0.15;
     filter: blur(60px);
     z-index: 0;
-    pointer-events: none; /* No interfiere con clicks */
+    pointer-events: none; /* Does not interfere with clicks */
 }
 
 
 /* -------------------------------------------------------
- * 6. BOTONES
- * .btn = base común
- * .btn-primary = borde cyan (principal / CTA)
- * .btn-secondary = borde gris (secundario / GitHub)
- * Para agregar un nuevo estilo de botón, crea .btn-xxx
- * siguiendo el mismo patrón.
+ * 6. ABOUT ME SECTION
+ * .about-container: readable text block with max-width.
+ * .about-text: paragraph spacing and muted color.
+ * ------------------------------------------------------- */
+.about-container {
+    max-width: 800px;
+}
+
+.about-text {
+    color: var(--text-muted);
+    font-size: 1.05rem;
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+}
+
+.about-text em {
+    color: var(--primary-color);
+    font-style: normal;
+    font-weight: 500;
+}
+
+
+/* -------------------------------------------------------
+ * 7. BUTTONS
+ * .btn = common base
+ * .btn-primary = cyan border (main / CTA)
+ * .btn-secondary = gray border (secondary / GitHub)
+ * To add a new button style, create .btn-xxx
+ * following the same pattern.
  * ------------------------------------------------------- */
 .btn {
     display: inline-block;
@@ -266,17 +289,17 @@ body {
 
 
 /* -------------------------------------------------------
- * 7. TARJETAS DE PROYECTOS
- * .projects-grid: cuadrícula auto-responsive de 2 columnas.
- *   Para forzar 3 columnas: repeat(3, 1fr)
- *   Para forzar 1 columna (móvil): repeat(1, 1fr)
+ * 8. PROJECT CARDS
+ * .projects-grid: auto-responsive 2-column grid.
+ *   To force 3 columns: repeat(3, 1fr)
+ *   To force 1 column (mobile): repeat(1, 1fr)
  *
- * .project-card usa flex-column para que el botón
- * "Ver Código" siempre quede anclado al fondo,
- * independientemente del largo de la descripción.
+ * .project-card uses flex-column so the "View Code"
+ * button is always anchored to the bottom,
+ * regardless of description length.
  *
- * Para agregar un nuevo proyecto, copia cualquier bloque
- * <article class="project-card"> en index.html.
+ * To add a new project, copy any
+ * <article class="project-card"> block in index.html.
  * ------------------------------------------------------- */
 .projects-grid {
     display: grid;
@@ -291,18 +314,18 @@ body {
     transition: transform var(--transition-speed), box-shadow var(--transition-speed);
     border: 1px solid rgba(255, 255, 255, 0.05);
     display: flex;
-    flex-direction: column; /* Permite igualar alturas entre tarjetas */
+    flex-direction: column; /* Allows equal heights between cards */
 }
 
 .project-card:hover {
-    transform: translateY(-5px);   /* Efecto de elevación */
+    transform: translateY(-5px);   /* Elevation effect */
     box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-    border-color: rgba(0, 229, 255, 0.3); /* Glow cyan sutil */
+    border-color: rgba(0, 229, 255, 0.3); /* Subtle cyan glow */
 }
 
-/* Área de imagen/placeholder antes de tener capturas reales.
- * Cuando tengas imágenes: reemplaza el <div> por un <img>
- * y elimina las propiedades display/justify/align-items. */
+/* Image/placeholder area before real screenshots are available.
+ * When you have images: replace the <div> with an <img>
+ * and remove the display/justify/align-items properties. */
 .project-image {
     height: 200px;
     width: 100%;
@@ -319,7 +342,7 @@ body {
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    flex: 1; /* Hace que el card ocupe toda la altura de su fila */
+    flex: 1; /* Makes the card fill all available row height */
 }
 
 .project-info h3 {
@@ -332,24 +355,25 @@ body {
     color: var(--text-muted);
     font-size: 0.95rem;
     margin-bottom: 1.5rem;
-    flex: 1; /* Empuja el enlace "Ver Código" siempre al fondo */
+    flex: 1; /* Pushes the "View Code" link always to the bottom */
 }
 
 
 /* -------------------------------------------------------
- * 8. BADGES DE TECNOLOGÍA
- * Cada motor/lenguaje tiene su propio color temático:
- *   .unity  = blanco neutro
- *   .csharp = púrpura
- *   .unreal = azul
- *   .bp     = verde (Blueprints)
- *   .collab = cyan (proyectos colaborativos)
+ * 9. TECHNOLOGY BADGES
+ * Each engine/language has its own thematic color:
+ *   .unity  = neutral white
+ *   .csharp = purple
+ *   .unreal = blue
+ *   .bp     = green (Blueprints)
+ *   .collab = cyan (collaborative projects)
+ *   .lead   = amber (lead developer role)
  *
- * Para añadir un nuevo motor: .badge.nombremotор { ... }
+ * To add a new engine: .badge.enginename { ... }
  * ------------------------------------------------------- */
 .tech-stack {
     display: flex;
-    flex-wrap: wrap; /* wrap permite que los badges bajen de línea si no caben */
+    flex-wrap: wrap; /* wrap allows badges to wrap to the next line if needed */
     gap: 0.5rem;
     margin-bottom: 1rem;
 }
@@ -365,11 +389,12 @@ body {
 .badge.unreal { background: rgba(52, 152, 219, 0.2);  color: #6db6f2; }
 .badge.bp     { background: rgba(46, 204, 113, 0.2);  color: #6fed9e; }
 .badge.collab { background: rgba(0, 229, 255, 0.15);  color: var(--primary-color); }
+.badge.lead   { background: rgba(251, 191, 36, 0.15); color: #fbbf24; }
 
 
 /* -------------------------------------------------------
- * 9. LINKS DE PROYECTOS
- * El emoji "💻" es parte del texto del link en HTML.
+ * 10. PROJECT LINKS
+ * The "💻" emoji is part of the link text in HTML.
  * ------------------------------------------------------- */
 .link {
     color: var(--primary-color);
@@ -381,11 +406,11 @@ body {
 
 
 /* -------------------------------------------------------
- * 10. HABILIDADES
- * Grid de 3 columnas auto-adaptativas.
- * .skills-list es un <ul> semántico sin bullets visuales.
- * Para añadir una nueva habilidad: agrega un <li> en HTML.
- * Para añadir una nueva categoría: duplica .skill-category en HTML.
+ * 11. SKILLS
+ * Auto-adaptive 3-column grid.
+ * .skills-list is a semantic <ul> without visual bullets.
+ * To add a new skill: add a <li> in HTML.
+ * To add a new category: duplicate .skill-category in HTML.
  * ------------------------------------------------------- */
 .skills-container {
     display: grid;
@@ -400,7 +425,7 @@ body {
     font-size: 1.2rem;
 }
 
-/* Reset de lista (la semántica <ul> sin bullets visuales) */
+/* List reset (semantic <ul> without visual bullets) */
 .skills-list {
     list-style: none;
     padding: 0;
@@ -425,10 +450,10 @@ body {
 
 
 /* -------------------------------------------------------
- * 11. CONTACTO
- * .contact-box: caja centrada con fondo de superficie.
- * .social-btn: links de texto simples para redes sociales.
- * Para añadir más redes: copia un <a class="social-btn"> en HTML.
+ * 12. CONTACT
+ * .contact-box: centered box with surface background.
+ * .social-btn: simple text links for social networks.
+ * To add more networks: copy an <a class="social-btn"> in HTML.
  * ------------------------------------------------------- */
 .contact-box {
     background-color: var(--bg-surface);
@@ -470,9 +495,9 @@ body {
 
 
 /* -------------------------------------------------------
- * 12. FOOTER
- * Simple y minimalista. El año se inserta dinámicamente
- * desde script.js (id="current-year").
+ * 13. FOOTER
+ * Simple and minimalist. The year is inserted dynamically
+ * from script.js (id="current-year").
  * ------------------------------------------------------- */
 footer {
     text-align: center;
@@ -484,14 +509,14 @@ footer {
 
 
 /* -------------------------------------------------------
- * 13. ANIMACIONES
- * .fade-in: estado inicial invisible (opacity:0, desplazado).
- * .fade-in.visible: estado final (JS lo activa con IntersectionObserver).
- * @keyframes blink: para el cursor parpadeante del nav-brand.
+ * 14. ANIMATIONS
+ * .fade-in: initial invisible state (opacity:0, offset).
+ * .fade-in.visible: final state (activated by JS via IntersectionObserver).
+ * @keyframes blink: for the blinking cursor on nav-brand.
  *
- * Para ajustar la velocidad de entrada: cambia 0.6s en .fade-in.
- * Para desactivar las animaciones globalmente: elimina .fade-in
- * del HTML o añade prefers-reduced-motion (ver abajo).
+ * To adjust entry speed: change 0.6s in .fade-in.
+ * To globally disable animations: remove .fade-in from
+ * HTML or add prefers-reduced-motion (see below).
  * ------------------------------------------------------- */
 .fade-in {
     opacity: 0;
@@ -504,7 +529,7 @@ footer {
     transform: translateY(0);
 }
 
-/* Respeto por usuarios con sensibilidad a movimiento (buena práctica) */
+/* Respect for users with motion sensitivity (best practice) */
 @media (prefers-reduced-motion: reduce) {
     .fade-in {
         transition: none;
@@ -520,11 +545,11 @@ footer {
 
 
 /* -------------------------------------------------------
- * 14. ACCESIBILIDAD
- * .skip-link: permite a usuarios de teclado saltar al contenido.
- *   Permanece invisible hasta recibir foco (:focus).
- * :focus-visible: anillo de foco solo para teclado (no para mouse).
- * aria-current="page": resalta el link activo del navbar (vía JS).
+ * 15. ACCESSIBILITY
+ * .skip-link: allows keyboard users to skip to content.
+ *   Remains invisible until it receives focus (:focus).
+ * :focus-visible: focus ring for keyboard only (not mouse).
+ * aria-current="page": highlights the active navbar link (via JS).
  * ------------------------------------------------------- */
 .skip-link {
     position: absolute;
@@ -539,10 +564,10 @@ footer {
     text-decoration: none;
 }
 .skip-link:focus {
-    top: 1rem; /* Aparece al hacer Tab por primera vez */
+    top: 1rem; /* Appears on first Tab key press */
 }
 
-/* Anillo de foco visible solo cuando se navega con teclado */
+/* Focus ring visible only when navigating with keyboard */
 a:focus-visible,
 .btn:focus-visible {
     outline: 2px solid var(--primary-color);
@@ -550,27 +575,27 @@ a:focus-visible,
     border-radius: 2px;
 }
 
-/* Link activo en el navbar (actualizado por JS con aria-current="page") */
+/* Active link in the navbar (updated by JS with aria-current="page") */
 .nav-links a[aria-current="page"] {
     color: var(--primary-color);
 }
 
 
 /* -------------------------------------------------------
- * 15. RESPONSIVE / MEDIA QUERIES
- * Breakpoint mínimo: 768px (tablets y móviles).
- * El menú se oculta — ideal para implementar hamburguesa.
+ * 16. RESPONSIVE / MEDIA QUERIES
+ * Minimum breakpoint: 768px (tablets and mobile).
+ * Menu is hidden — ideal for implementing hamburger.
  *
- * Para agregar más breakpoints:
- *   @media (max-width: 480px) { ... }  → móviles pequeños
- *   @media (min-width: 1440px) { ... } → pantallas grandes
+ * To add more breakpoints:
+ *   @media (max-width: 480px) { ... }  → small mobile
+ *   @media (min-width: 1440px) { ... } → large screens
  * ------------------------------------------------------- */
 @media (max-width: 768px) {
-    /* Oculta el menú horizontal — implementar hamburguesa en el futuro */
+    /* Hides horizontal menu — implement hamburger in the future */
     .nav-links { display: none; }
 
     .name { font-size: 3rem; }
 
-    /* En móvil, el botón secundario baja debajo del primario */
+    /* On mobile, secondary button moves below the primary */
     .btn-secondary { margin-left: 0; margin-top: 1rem; }
 }

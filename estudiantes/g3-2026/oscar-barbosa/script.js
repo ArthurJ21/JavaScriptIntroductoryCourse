@@ -1,22 +1,22 @@
 // =======================================================
-// PORTAFOLIO — Oscar Barbosa | Gameplay & AI Programmer
-// Archivo: script.js
-// Descripción: Lógica de interactividad del portafolio.
+// PORTFOLIO — Oscar Barbosa | Gameplay & AI Programmer
+// File: script.js
+// Description: Portfolio interactivity logic.
 //
-// ÍNDICE DE SECCIONES:
-//  1. Año automático en el footer
-//  2. Animaciones fade-in con IntersectionObserver
-//  3. Scroll suave del navbar (event delegation)
-//  4. Resaltado de sección activa en navbar (aria-current)
+// SECTION INDEX:
+//  1. Automatic year in the footer
+//  2. Fade-in animations with IntersectionObserver
+//  3. Smooth navbar scroll (event delegation)
+//  4. Active section highlight in navbar (aria-current)
 // =======================================================
 
 document.addEventListener("DOMContentLoaded", () => {
 
     // -------------------------------------------------------
-    // 1. AÑO AUTOMÁTICO EN EL FOOTER
-    // Lee el elemento #current-year del HTML y lo rellena
-    // con el año actual. Así nunca hay que actualizar el
-    // footer manualmente al cambiar de año.
+    // 1. AUTOMATIC YEAR IN THE FOOTER
+    // Reads the #current-year element from HTML and fills it
+    // with the current year, so the footer never needs to be
+    // updated manually when the year changes.
     // -------------------------------------------------------
     const yearEl = document.getElementById("current-year");
     if (yearEl) {
@@ -25,38 +25,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
     // -------------------------------------------------------
-    // 2. ANIMACIONES FADE-IN AL HACER SCROLL
-    // Usa IntersectionObserver (más eficiente que 'scroll' listener)
-    // para añadir la clase .visible a cada elemento .fade-in
-    // cuando entra al viewport.
+    // 2. FADE-IN SCROLL ANIMATIONS
+    // Uses IntersectionObserver (more efficient than a 'scroll'
+    // listener) to add the .visible class to each .fade-in
+    // element when it enters the viewport.
     //
-    // Para agregar animación a cualquier nuevo elemento HTML:
-    // simplemente añádele la clase "fade-in" en el HTML.
+    // To add animation to any new HTML element, simply add
+    // the "fade-in" class to it in the HTML.
     //
-    // El setTimeout de 500ms es un fallback de seguridad para
-    // cuando el archivo se abre con file:// (protocolo local),
-    // donde el Observer puede no dispararse correctamente.
+    // The 500ms setTimeout is a safety fallback for when the
+    // file is opened via file:// (local protocol), where the
+    // Observer may not fire correctly.
     // -------------------------------------------------------
     if ("IntersectionObserver" in window) {
         const observerOptions = {
-            root: null,        // Viewport del navegador como raíz
+            root: null,        // Browser viewport as root
             rootMargin: "0px",
-            threshold: 0.1     // Se activa cuando el 10% del elemento es visible
+            threshold: 0.1     // Triggers when 10% of the element is visible
         };
 
         const observer = new IntersectionObserver((entries, obs) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add("visible");
-                    obs.unobserve(entry.target); // Deja de observar: solo anima una vez
+                    obs.unobserve(entry.target); // Stop observing: animate only once
                 }
             });
         }, observerOptions);
 
         document.querySelectorAll(".fade-in").forEach(el => observer.observe(el));
 
-        // Fallback de seguridad: muestra los elementos restantes tras 500ms.
-        // Cubre edge cases con protocolo file:// o navegadores estrictos.
+        // Safety fallback: shows remaining elements after 500ms.
+        // Covers edge cases with file:// protocol or strict browsers.
         setTimeout(() => {
             document.querySelectorAll(".fade-in:not(.visible)").forEach(el => {
                 el.classList.add("visible");
@@ -64,29 +64,29 @@ document.addEventListener("DOMContentLoaded", () => {
         }, 500);
 
     } else {
-        // Fallback total: navegadores sin soporte de IntersectionObserver.
-        // Muestra todos los elementos directamente sin animación.
+        // Full fallback: browsers without IntersectionObserver support.
+        // Shows all elements directly without animation.
         document.querySelectorAll(".fade-in").forEach(el => el.classList.add("visible"));
     }
 
 
     // -------------------------------------------------------
-    // 3. SCROLL SUAVE DEL NAVBAR
-    // Usa 'event delegation': un solo listener en el <ul>
-    // maneja el click de todos los links, en vez de uno
-    // por cada <a>. Más eficiente y fácil de mantener.
+    // 3. SMOOTH NAVBAR SCROLL
+    // Uses 'event delegation': a single listener on the <ul>
+    // handles clicks for all links, instead of one per <a>.
+    // More efficient and easier to maintain.
     //
-    // El try/catch protege de selectores inválidos que
-    // podrían romper la ejecución del script.
+    // The try/catch guards against invalid selectors that
+    // could break script execution.
     //
-    // Para cambiar el offset del scroll (ej. si la navbar
-    // cambia de tamaño), edita navbarHeight o usa
+    // To change the scroll offset (e.g. if the navbar changes
+    // size), edit navbarHeight or use
     // document.querySelector(".navbar").offsetHeight.
     // -------------------------------------------------------
     const navList = document.querySelector(".nav-links");
     if (navList) {
         navList.addEventListener("click", (e) => {
-            // Solo reacciona a links con href="#seccion" (internos)
+            // Only reacts to links with href="#section" (internal)
             const link = e.target.closest("a[href^='#']");
             if (!link) return;
 
@@ -96,7 +96,7 @@ document.addEventListener("DOMContentLoaded", () => {
             try {
                 const targetSection = document.querySelector(targetId);
                 if (targetSection) {
-                    // Descuenta la altura de la navbar fija para no tapar el título
+                    // Subtract fixed navbar height to avoid covering the section title
                     const navbarHeight = document.querySelector(".navbar")?.offsetHeight || 70;
                     window.scrollTo({
                         top: targetSection.offsetTop - navbarHeight,
@@ -104,26 +104,26 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
                 }
             } catch (error) {
-                // Si el selector falla (ej. href="#algo-inválido"), avisa en consola
-                // sin romper el resto del script.
-                console.warn("Navegación: selector no válido ->", targetId);
+                // If the selector fails (e.g. href="#invalid"), warn in console
+                // without breaking the rest of the script.
+                console.warn("Navigation: invalid selector ->", targetId);
             }
         });
     }
 
 
     // -------------------------------------------------------
-    // 4. RESALTADO DE SECCIÓN ACTIVA EN EL NAVBAR
-    // Actualiza aria-current="page" en el link del navbar
-    // correspondiente a la sección visible en pantalla.
-    // El CSS en style.css usa este atributo para colorear
-    // el link activo en cyan.
+    // 4. ACTIVE SECTION HIGHLIGHT IN NAVBAR
+    // Updates aria-current="page" on the navbar link that
+    // corresponds to the section visible on screen.
+    // The CSS in style.css uses this attribute to color
+    // the active link in cyan.
     //
-    // Usa IntersectionObserver (más eficiente que 'scroll' listener)
-    // con threshold: 0.5 (la sección debe estar 50% visible).
+    // Uses IntersectionObserver (more efficient than 'scroll'
+    // listener) with threshold: 0.5 (section must be 50% visible).
     //
-    // Para añadir una nueva sección y que el navbar la detecte:
-    // basta con añadir un id al <section> y un <a href="#id"> en HTML.
+    // To add a new section and have the navbar detect it:
+    // just add an id to the <section> and an <a href="#id"> in HTML.
     // -------------------------------------------------------
     const sections = document.querySelectorAll("section[id], header[id]");
     const navLinks = document.querySelectorAll(".nav-links a");
@@ -136,7 +136,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     navLinks.forEach(link => {
                         link.removeAttribute("aria-current");
                         if (link.getAttribute("href") === `#${id}`) {
-                            // aria-current="page" es estándar de accesibilidad ARIA
+                            // aria-current="page" is the standard ARIA accessibility attribute
                             link.setAttribute("aria-current", "page");
                         }
                     });
@@ -148,6 +148,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    // Mensaje de confirmación en DevTools (solo para desarrollo)
-    console.info("OB Portfolio: Todos los sistemas inicializados correctamente.");
+    // Confirmation message in DevTools (development only)
+    console.info("OB Portfolio: All systems initialized successfully.");
 });
