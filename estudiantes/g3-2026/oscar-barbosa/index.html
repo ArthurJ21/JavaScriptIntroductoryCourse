@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Oscar Barbosa | Gameplay &amp; AI Programmer</title>
+    <meta name="description" content="Portfolio of Oscar Barbosa, game developer specialized in gameplay mechanics and AI (Unity, C#, Unreal Engine).">
+
+    <!-- SEO: Open Graph for social networks (LinkedIn, Twitter) -->
+    <meta property="og:title" content="Oscar Barbosa | Gameplay &amp; AI Programmer">
+    <meta property="og:description" content="Game developer portfolio: mechanics, Behavior Trees, intelligent NPCs with Unity and Unreal Engine.">
+    <meta property="og:type" content="website">
+
+    <!-- Security -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+
+    <!-- Performance: Preconnect to reduce external font latency -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@500;700;800&display=swap">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Outfit:wght@500;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- =======================================================
+     * PORTFOLIO — Oscar Barbosa | Gameplay & AI Programmer
+     * File: index.html
+     * Description: Main structure and content of the portfolio.
+     *
+     * SECTION INDEX (Search by these IDs or classes):
+     *  1. NAV (.navbar)       - Top navigation bar
+     *  2. HEADER (#home)      - Hero section with main greeting
+     *  3. MAIN > ABOUT (#about)     - About Me section
+     *  4. MAIN > PROJECTS (#projects) - Game project cards
+     *  5. MAIN > SKILLS (#skills)   - Tech stack and tools
+     *  6. MAIN > CONTACT (#contact) - GitHub, LinkedIn and Email links
+     *  7. FOOTER              - Footer with automatic year
+     * ======================================================= -->
+
+    <!-- Accessibility: skip-link for keyboard/screen reader users -->
+    <a href="#home" class="skip-link">Skip to main content</a>
+
+    <nav class="navbar" role="navigation" aria-label="Main navigation menu">
+        <div class="nav-brand" aria-label="Oscar Barbosa - Home">OB</div>
+        <ul class="nav-links">
+            <li><a href="#home" aria-label="Go to Home">Home</a></li>
+            <li><a href="#about" aria-label="Go to About Me">About</a></li>
+            <li><a href="#projects" aria-label="Go to Projects">Projects</a></li>
+            <li><a href="#skills" aria-label="Go to Skills">Skills</a></li>
+            <li><a href="#contact" aria-label="Go to Contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <header id="home" class="hero" role="banner">
+        <div class="hero-content fade-in">
+            <p class="greeting">Hi, I'm</p>
+            <h1 class="name">Oscar Barbosa</h1>
+            <h2 class="title">Gameplay &amp; AI Programmer</h2>
+            <p class="bio">Specialized in building smooth gameplay mechanics and Artificial Intelligence behaviors for NPCs and enemies. Bringing interactive 3D worlds to life with Unity and Unreal Engine.</p>
+            <div class="hero-actions">
+                <a href="#projects" class="btn btn-primary" aria-label="View featured projects section">View my projects</a>
+                <a href="https://github.com/oscabaho" target="_blank" rel="noopener noreferrer" class="btn btn-secondary" aria-label="Oscar Barbosa's GitHub profile (oscabaho)">GitHub</a>
+            </div>
+        </div>
+        <div class="hero-glow" aria-hidden="true"></div>
+    </header>
+
+    <main role="main">
+
+        <!-- About Me Section -->
+        <section id="about" class="section" aria-labelledby="about-title">
+            <h2 id="about-title" class="section-title fade-in">About Me</h2>
+            <div class="about-container fade-in">
+                <p class="about-text">
+                    It started in childhood when I got a Super Nintendo — I was immediately fascinated by the question: <em>how do they make this?</em> I tried to break into game development back then, but the internet and self-learning resources weren't widely accessible, so I never found the right guidance. I never stopped playing though, always thinking about what was happening under the hood.
+                </p>
+                <p class="about-text">
+                    Years later, life took me into medicine. I graduated as a General Practitioner and spent most of my career practicing medicine. But the passion never left. As the internet evolved and self-teaching became accessible, I started programming as a hobby — then a passion — and now it's my life's calling.
+                </p>
+                <p class="about-text">
+                    My personal mission: to build simulation experiences that integrate my medical expertise and game development skills, designed for physician training and clinical qualification — aligned with institutional standards and international medical guidelines.
+                </p>
+            </div>
+        </section>
+
+        <!-- Projects Section -->
+        <section id="projects" class="section" aria-labelledby="projects-title">
+            <h2 id="projects-title" class="section-title fade-in">Featured Projects</h2>
+            <div class="projects-grid">
+
+                <!-- Project 1: Santa (flagship) -->
+                <article class="project-card fade-in" aria-label="Project Santa">
+                    <div class="project-image placeholder" role="img" aria-label="Screenshot of Santa game">
+                        <span aria-hidden="true">Santa</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Santa</h3>
+                        <div class="tech-stack" aria-label="Technologies used">
+                            <span class="badge unity">Unity</span>
+                            <span class="badge csharp">C#</span>
+                            <span class="badge lead">Lead Developer</span>
+                        </div>
+                        <p>Vertical slice optimized for mobile devices. Design and implementation of a hybrid system combining JRPG level progression with Roguelike procedural mechanics. Includes inventory logic, turn-based combat, and dynamic encounter generation.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/oscabaho/Santa" target="_blank" rel="noopener noreferrer" class="link" aria-label="View Santa repository on GitHub (opens in new tab)">💻 View Code</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 2: Esfinge -->
+                <article class="project-card fade-in" aria-label="Project Esfinge">
+                    <div class="project-image placeholder" role="img" aria-label="Screenshot of Esfinge game in Unreal Engine">
+                        <span aria-hidden="true">Esfinge</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Esfinge</h3>
+                        <div class="tech-stack" aria-label="Technologies used">
+                            <span class="badge unreal">Unreal Engine</span>
+                            <span class="badge bp">Blueprints</span>
+                            <span class="badge lead">Lead Developer</span>
+                        </div>
+                        <p>Survival horror in active development under Unreal Engine 5. Implementation of tension mechanics, AI systems for hostile entities, and stealth logic using Blueprints. The project demonstrates the ability to scale complex systems in a continuous production environment.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/oscabaho/Esfinge" target="_blank" rel="noopener noreferrer" class="link" aria-label="View Esfinge repository on GitHub (opens in new tab)">💻 View Code</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 3: The Woods of Secrets -->
+                <article class="project-card fade-in" aria-label="Project The Woods of Secrets">
+                    <div class="project-image placeholder" role="img" aria-label="Screenshot of The Woods of Secrets game">
+                        <span aria-hidden="true">The Woods of Secrets</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>The Woods of Secrets</h3>
+                        <div class="tech-stack" aria-label="Technologies used">
+                            <span class="badge unity">Unity</span>
+                            <span class="badge csharp">C#</span>
+                            <span class="badge lead">Lead Developer</span>
+                        </div>
+                        <p>First immersion in Unity: a fully functional and deliverable game built entirely on the programming side. Overcame bottlenecks in the art pipeline while designing mechanics, event architecture, and performance profiling.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/oscabaho/Proyect-Secret" target="_blank" rel="noopener noreferrer" class="link" aria-label="View The Woods of Secrets repository on GitHub (opens in new tab)">💻 View Code</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 4: Gravity -->
+                <article class="project-card fade-in" aria-label="Project Gravity">
+                    <div class="project-image placeholder" role="img" aria-label="Screenshot of Gravity prototype">
+                        <span aria-hidden="true">Gravity</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>Gravity</h3>
+                        <div class="tech-stack" aria-label="Technologies used">
+                            <span class="badge unity">Unity</span>
+                            <span class="badge csharp">C#</span>
+                            <span class="badge lead">Lead Developer</span>
+                        </div>
+                        <p>Game Jam prototype with a solid architectural foundation: gravity manipulation as the core mechanic, custom movement logic, and conceptual art direction. Demonstrates rapid prototyping ability and design decision-making under time pressure.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/osbaho/Gravity" target="_blank" rel="noopener noreferrer" class="link" aria-label="View Gravity repository on GitHub (opens in new tab)">💻 View Code</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Project 5: JamGame (completed collaboration) -->
+                <article class="project-card fade-in" aria-label="Project JamGame - Collaborative Game Jam">
+                    <div class="project-image placeholder" role="img" aria-label="Screenshot of JamGame">
+                        <span aria-hidden="true">JamGame</span>
+                    </div>
+                    <div class="project-info">
+                        <h3>JamGame</h3>
+                        <div class="tech-stack" aria-label="Technologies used">
+                            <span class="badge unity">Unity</span>
+                            <span class="badge csharp">C#</span>
+                            <span class="badge collab">Collaborator</span>
+                        </div>
+                        <p>Completed team Game Jam. As collaborator, I designed the scene transition architecture, the full inventory system, the Duck Hunter minigame (logic and transitions), and the buff/debuff review system between minigames. All contributions were programming and engine integration — no art.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/JuanDaGue/JamGame" target="_blank" rel="noopener noreferrer" class="link" aria-label="View JamGame repository on GitHub (opens in new tab)">💻 View Code</a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills" class="section" aria-labelledby="skills-title">
+            <h2 id="skills-title" class="section-title fade-in">Stack &amp; Specialties</h2>
+            <div class="skills-container fade-in">
+                <div class="skill-category">
+                    <h3>Engines &amp; Languages</h3>
+                    <ul class="skills-list" aria-label="List of engines and languages">
+                        <li><span class="skill-tag">Unity</span></li>
+                        <li><span class="skill-tag">Unreal Engine</span></li>
+                        <li><span class="skill-tag">C#</span></li>
+                        <li><span class="skill-tag">Blueprints</span></li>
+                        <li><span class="skill-tag">JavaScript</span></li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Core Development</h3>
+                    <ul class="skills-list" aria-label="List of core development specialties">
+                        <li><span class="skill-tag">Gameplay Programming</span></li>
+                        <li><span class="skill-tag">Artificial Intelligence (NPCs)</span></li>
+                        <li><span class="skill-tag">Behavior Trees</span></li>
+                        <li><span class="skill-tag">Physics &amp; 3D Mechanics</span></li>
+                        <li><span class="skill-tag">Event Systems</span></li>
+                    </ul>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools</h3>
+                    <ul class="skills-list" aria-label="List of tools">
+                        <li><span class="skill-tag">Git (GitHub Actions/PRs)</span></li>
+                        <li><span class="skill-tag">Rider IDE</span></li>
+                        <li><span class="skill-tag">Visual Studio</span></li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section" aria-labelledby="contact-title">
+            <div class="contact-box fade-in">
+                <h2 id="contact-title">Ready to collaborate?</h2>
+                <p>Always open to discuss software architecture, debug critical AI issues, and build interactive worlds.</p>
+                <div class="contact-links">
+                    <a href="mailto:osbaho86@gmail.com" class="btn btn-primary" aria-label="Send an email to Oscar Barbosa">Send me an email</a>
+                    <div class="social-links">
+                        <a href="https://github.com/oscabaho" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub profile oscabaho (opens in new tab)">GitHub (@oscabaho)</a>
+                        <a href="https://github.com/osbaho" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="GitHub profile osbaho (opens in new tab)">GitHub (@osbaho)</a>
+                        <a href="https://www.linkedin.com/in/osbaho/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn profile Oscar Barbosa (opens in new tab)">LinkedIn (@osbaho)</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer role="contentinfo">
+        <p>&copy; <span id="current-year"></span> Oscar Barbosa · Built with passion.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
