@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Mi primera app Vue</title>
+    <script src="https://unpkg.com/vue@3"></script>
+  </head>
+
+  <body>
+    <div id="app">
+      <p>Contador: {{ contador }}</p>
+
+      <button @click="contador++">Incrementar</button>
+    </div>
+
+    <script>
+      const app = Vue.createApp({
+        data() {
+          return {
+            contador: 0,
+          };
+        },
+      });
+
+      app.mount("#app");
+    </script>
+  </body>
+</html>
