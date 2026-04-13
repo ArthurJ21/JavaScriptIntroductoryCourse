@@ -339,8 +339,8 @@ function crearContador() {
     };
 }
 
-const contador1 = crearContador();
-const contador2 = crearContador();
+const contador1 = crearContador(); // Almacena la función que retorna la función crearContador 
+const contador2 = crearContador(); // Cada contador tiene su propio estado privado (contador) gracias al closure
 
 console.log("Contador 1:", contador1()); // 1
 console.log("Contador 1:", contador1()); // 2
@@ -390,7 +390,7 @@ function crearGestorTareas() {
         },
 
         mostrarTareas: function() {
-            console.log("\n📋 LISTA DE TAREAS:");
+            console.log("\nLISTA DE TAREAS:");
             tareas.forEach((tarea, index) => {
                 const estado = tarea.completada ? '✓' : '○';
                 console.log(`${index + 1}. ${estado} ${tarea.descripcion}`);
