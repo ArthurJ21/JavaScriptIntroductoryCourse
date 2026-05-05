@@ -51,11 +51,13 @@ El contenido está organizado de la siguiente manera:
 <br>
 
 ## Instalación y Configuración
-Sigue estos pasos para preparar tu entorno local:
+Sigue estos pasos para preparar tu entorno local: 
+[Fork a repository - GitHub Docs](https://docs.github.com/en/pull-requests/collaborating-with-pull-requests/working-with-forks/fork-a-repo).
 
-1. **Clonar el repositorio:**
-   ```bash
-   git clone https://github.com/ArthurJ21/JavaScriptIntroductoryCourse
+
+**Hacer Fork del repositorio:**
+Para entender como funciona y realizar un Fork usando GitHub Desktop, te recomiendo este video:
+[Fork, Clone & Edit GitHub projects easily with GitHub Desktop](https://www.youtube.com/watch?v=hL9fCjjwthE).
 
 ---
 <br>
@@ -65,7 +67,7 @@ Si quieres añadir un ejercicio, ¡los Pull Requests son bienvenidos! <br>
 
 Sigue estos pasos:
 
-1. A esta punto, ya deberias tener un fork del proyecto en tu local. Si no lo tienes aún, haz un Fork(Clonar) del proyecto (Sección instalación y configuración).
+1. A esta punto, ya deberias tener un fork del proyecto en tu local. Si no lo tienes aún, haz un Fork del proyecto ([Instalación y Configuración.](#instalación-y-configuración)).
 Una vez lo hayas hecho, crea una rama para trabajar tu ejercicio. **¡NOTA!: Asegurate de tener los últimos cambios del repo en tu repo local**. Para esto puede usar este comando para comprobar y hacer pull si es necesario (Asegurate de tener el area de trabajo limpia):
    ```bash
    git fetch
@@ -88,7 +90,7 @@ Una vez lo hayas hecho, crea una rama para trabajar tu ejercicio. **¡NOTA!: Ase
 5. Haz un commit de tus cambios.
 
 6. Envía el Pull Request.
-> **💡 Nota!:** Para efectos practicos del curso, los Pull Request se harán a la rama **main** directamente. 
+> **💡 Nota!:** Para efectos practicos del curso, los Pull Request se harán a la rama **development** directamente. 
 ---
 <br>
 
@@ -131,4 +133,5 @@ Si usas VS Code como IDE y te llama la atención tener las extensiones que has p
 * [Curso de CSS](https://www.youtube.com/watch?v=hrxjBqZWsb0).
 * [Curso de Git y GitHub](https://www.youtube.com/watch?v=niPExbK8lSw).
 * [Lógica condicional en JavaScript](https://www.freecodecamp.org/news/a-definitive-guide-to-conditional-logic-in-javascript-23fa234d2ca3/).
+* [¿Qué es un dominio?](https://miposicionamientoweb.es/que-es-un-dominio/).
 
