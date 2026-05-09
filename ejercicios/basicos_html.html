@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Básico</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 24px;
+        max-width: 900px;
+      }
+      pre {
+        background: #f4f4f4;
+        border: 1px solid #ddd;
+        padding: 16px;
+        overflow-x: auto;
+      }
+      code {
+        font-family: Consolas, monospace;
+        font-size: 0.95em;
+      }
+      h1, h2, h3 {
+        color: #333;
+      }
+      hr {
+        border: 0;
+        border-top: 1px solid #ddd;
+        margin: 24px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>HTML Básico</h1>
+
+    <h2>¿Qué es HTML?</h2>
+    <p>HTML (HyperText Markup Language) es el lenguaje de marcado estándar para crear páginas web. Se usa para estructurar el contenido y decirle al navegador cómo mostrar texto, imágenes, enlaces y otros elementos.</p>
+
+    <h2>Estructura básica de un documento HTML</h2>
+    <pre><code>&lt;!DOCTYPE html&gt;
+&lt;html lang="es"&gt;
+  &lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;Mi primera página&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;Hola mundo&lt;/h1&gt;
+    &lt;p&gt;Este es el contenido de la página.&lt;/p&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+    <ul>
+      <li><code>&lt;!DOCTYPE html&gt;</code>: Indica que el documento usa HTML5.</li>
+      <li><code>&lt;html&gt;</code>: Contiene todo el documento.</li>
+      <li><code>&lt;head&gt;</code>: Contiene metadatos, título, enlaces a estilos y scripts.</li>
+      <li><code>&lt;body&gt;</code>: Contiene el contenido visible de la página.</li>
+    </ul>
+
+    <h2>Etiquetas HTML comunes</h2>
+
+    <h3>Títulos y texto</h3>
+    <ul>
+      <li><code>&lt;h1&gt;</code> a <code>&lt;h6&gt;</code>: Encabezados, donde <code>&lt;h1&gt;</code> es el más importante.</li>
+      <li><code>&lt;p&gt;</code>: Párrafo.</li>
+      <li><code>&lt;strong&gt;</code>: Texto importante en negrita.</li>
+      <li><code>&lt;em&gt;</code>: Texto enfatizado en cursiva.</li>
+      <li><code>&lt;br&gt;</code>: Salto de línea.</li>
+      <li><code>&lt;hr&gt;</code>: Línea horizontal separadora.</li>
+    </ul>
+
+    <h3>Listas</h3>
+    <p><code>&lt;ul&gt;</code>: Lista desordenada.</p>
+    <p><code>&lt;ol&gt;</code>: Lista ordenada.</p>
+    <p><code>&lt;li&gt;</code>: Elemento de lista.</p>
+    <pre><code>&lt;ul&gt;
+  &lt;li&gt;Elemento 1&lt;/li&gt;
+  &lt;li&gt;Elemento 2&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+
+    <h3>Enlaces</h3>
+    <p><code>&lt;a href="url"&gt;</code>: Crea un enlace.</p>
+    <p><code>target="_blank"</code>: Abre el enlace en una nueva pestaña.</p>
+    <pre><code>&lt;a href="https://www.example.com" target="_blank"&gt;Visitar ejemplo&lt;/a&gt;
+</code></pre>
+
+    <h3>Imágenes</h3>
+    <p><code>&lt;img src="ruta" alt="texto alternativo"&gt;</code></p>
+    <p><code>alt</code> es obligatorio para accesibilidad y SEO.</p>
+    <pre><code>&lt;img src="imagen.png" alt="Descripción de la imagen"&gt;
+</code></pre>
+
+    <h3>Tablas</h3>
+    <p><code>&lt;table&gt;</code>: Tabla.</p>
+    <p><code>&lt;tr&gt;</code>: Fila.</p>
+    <p><code>&lt;th&gt;</code>: Celda de encabezado.</p>
+    <p><code>&lt;td&gt;</code>: Celda de datos.</p>
+    <pre><code>&lt;table&gt;
+  &lt;tr&gt;
+    &lt;th&gt;Nombre&lt;/th&gt;
+    &lt;th&gt;Edad&lt;/th&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Ana&lt;/td&gt;
+    &lt;td&gt;25&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</code></pre>
+
+    <h3>Formularios</h3>
+    <p><code>&lt;form&gt;</code>: Contenedor del formulario.</p>
+    <p><code>&lt;input&gt;</code>: Campo de texto, botón, correo, contraseña, etc.</p>
+    <p><code>&lt;textarea&gt;</code>: Área de texto grande.</p>
+    <p><code>&lt;button&gt;</code>: Botón.</p>
+    <p><code>&lt;label&gt;</code>: Etiqueta de campo.</p>
+    <pre><code>&lt;form action="/enviar" method="post"&gt;
+  &lt;label for="nombre"&gt;Nombre:&lt;/label&gt;
+  &lt;input type="text" id="nombre" name="nombre"&gt;
+  &lt;button type="submit"&gt;Enviar&lt;/button&gt;
+&lt;/form&gt;
+</code></pre>
+
+    <h2>Atributos importantes</h2>
+    <ul>
+      <li><code>id</code>: Identificador único.</li>
+      <li><code>class</code>: Clase para agrupar estilos o seleccionar con CSS/JS.</li>
+      <li><code>src</code>: Ruta de recurso (imagen, script).</li>
+      <li><code>href</code>: URL de enlace o archivo.</li>
+      <li><code>alt</code>: Texto alternativo para imágenes.</li>
+      <li><code>title</code>: Texto adicional al pasar el cursor.</li>
+    </ul>
+
+    <h2>Elementos semánticos</h2>
+    <p>HTML5 introdujo etiquetas que describen mejor el contenido:</p>
+    <ul>
+      <li><code>&lt;header&gt;</code>: Encabezado de página o sección.</li>
+      <li><code>&lt;nav&gt;</code>: Navegación.</li>
+      <li><code>&lt;main&gt;</code>: Contenido principal.</li>
+      <li><code>&lt;section&gt;</code>: Sección de contenido.</li>
+      <li><code>&lt;article&gt;</code>: Contenido independiente.</li>
+      <li><code>&lt;aside&gt;</code>: Barra lateral o contenido secundario.</li>
+      <li><code>&lt;footer&gt;</code>: Pie de página.</li>
+    </ul>
+
+    <h2>Comentarios</h2>
+    <p>Los comentarios no se muestran en el navegador:</p>
+    <pre><code>&lt;!-- Este es un comentario --&gt;
+</code></pre>
+
+    <h2>Entidades HTML</h2>
+    <p>Algunos caracteres especiales se representan con entidades:</p>
+    <ul>
+      <li><code>&amp;lt;</code> = <code>&lt;</code></li>
+      <li><code>&amp;gt;</code> = <code>&gt;</code></li>
+      <li><code>&amp;amp;</code> = <code>&amp;</code></li>
+      <li><code>&amp;quot;</code> = <code>"</code></li>
+      <li><code>&amp;nbsp;</code> = espacio no separable</li>
+    </ul>
+
+    <h2>Buenas prácticas básicas</h2>
+    <ul>
+      <li>Usa <code>lang="es"</code> en la etiqueta <code>&lt;html&gt;</code>.</li>
+      <li>Incluye <code>&lt;meta charset="UTF-8"&gt;</code>.</li>
+      <li>Mantén el contenido bien estructurado.</li>
+      <li>Usa elementos semánticos para mejorar accesibilidad.</li>
+      <li>Usa <code>alt</code> en todas las imágenes.</li>
+    </ul>
+
+    <h2>Cómo enlazar CSS y JavaScript</h2>
+    <h3>CSS</h3>
+    <pre><code>&lt;link rel="stylesheet" href="styles.css"&gt;
+</code></pre>
+    <h3>JavaScript</h3>
+    <pre><code>&lt;script src="script.js"&gt;&lt;/script&gt;
+</code></pre>
+
+    <h2>Resumen rápido</h2>
+    <ol>
+      <li>HTML estructura la página web.</li>
+      <li><code>&lt;head&gt;</code> contiene metadatos.</li>
+      <li><code>&lt;body&gt;</code> contiene lo visible.</li>
+      <li>Usa etiquetas semánticas cuando sea posible.</li>
+      <li>Usa atributos como <code>id</code>, <code>class</code>, <code>href</code>, <code>src</code>, <code>alt</code>.</li>
+      <li>Practica con ejemplos simples y construye gradualmente.</li>
+    </ol>
+
+    <hr>
+    <p>Con esto tienes las bases para empezar a crear páginas HTML y entender cómo funciona la estructura básica de cualquier sitio web.</p>
+  </body>
+</html>
